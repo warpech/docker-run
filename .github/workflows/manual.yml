@@ -27,3 +27,4 @@ jobs:
         with:
           timeout: 1h
           port: 80
+          ngrok_authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
