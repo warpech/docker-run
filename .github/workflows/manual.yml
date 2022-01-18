@@ -13,5 +13,8 @@ jobs:
     container:
       image: ${{ github.event.inputs.image }}
       steps:
-        - name: Show current path
+        - name: Show current path (Docker)
           run: pwd
+    steps:
+      - name: Show current path (main)
+        run: pwd
