@@ -21,6 +21,7 @@ jobs:
     services:
       container:
         image: ${{ github.event.inputs.image }}
+        options: --name container
         ports:
           - 80:80
     steps:
