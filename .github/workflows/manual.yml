@@ -11,7 +11,7 @@ jobs:
   run-image:
     runs-on: ubuntu-latest
     env:
-      NGROK_TOKEN : ${{ secrets.NGROK_AUTHTOKEN }}
+      NGROK_TOKEN: ${{ secrets.NGROK_AUTHTOKEN }}
     services:
       container:
         image: ${{ github.event.inputs.image }}
