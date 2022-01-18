@@ -9,9 +9,9 @@ on:
 
 jobs:
   run-image:
-    runs-on: ubuntu-latest
     env:
       NGROK_TOKEN: ${{ secrets.NGROK_AUTHTOKEN }}
+    runs-on: ubuntu-latest
     services:
       container:
         image: ${{ github.event.inputs.image }}
