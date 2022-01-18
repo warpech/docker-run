@@ -12,6 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ${{ github.event.inputs.image }}
-    steps:
-      - name: Show current path
-        run: pwd
+      steps:
+        - name: Show current path
+          run: pwd
