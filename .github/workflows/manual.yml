@@ -6,6 +6,12 @@ on:
         description: 'Docker image'
         required: true
         default: 'ghcr.io/handsontable/handsontable/handsontable-documentation:latest'
+      customcommand:
+        description: 'Custom command'
+        default: ''
+      duration:
+        description: 'Session duration'
+        default: '15m'
 
 jobs:
   run-image:
@@ -22,6 +28,8 @@ jobs:
         run: pwd
       - name: List files
         run: ls
+      - name: Run custom command
+        run: ${{ github.event.inputs.customcommand }}
       # - name: Setup tmate session
       #   uses: mxschmitt/action-tmate@f309efdef7da88e388f96a3cafc4f181ac639f7a
       #   timeout-minutes: 15
@@ -31,5 +39,5 @@ jobs:
         with:
           protocol: http
           port: 80
-      - name: Sleep 1h
-        run: sleep 1h
+      - name: Sleep
+        run: sleep ${{ github.event.inputs.duration }}
