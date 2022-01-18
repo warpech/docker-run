@@ -10,6 +10,8 @@ on:
 jobs:
   run-image:
     runs-on: ubuntu-latest
+    env:
+      NGROK_TOKEN : ${{ secrets.NGROK_AUTHTOKEN }}
     services:
       container:
         image: ${{ github.event.inputs.image }}
@@ -23,8 +25,9 @@ jobs:
       # - name: Setup tmate session
       #   uses: mxschmitt/action-tmate@f309efdef7da88e388f96a3cafc4f181ac639f7a
       #   timeout-minutes: 15
-      - uses: apogiatzis/ngrok-tunneling-action@a88c9e0ef5b0f1932a5715f210f2fde239fc2630
-        with:
-          timeout: 1h
-          port: 80
-          ngrok_authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
+    - name: Run establish a ngrok tunnel
+      id: test
+      uses: vmactions/ngrok-tunnel@v0.0.1
+      with:
+        protocol: http
+        port: 80
