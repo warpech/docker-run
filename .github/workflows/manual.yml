@@ -10,15 +10,14 @@ on:
 jobs:
   run-image:
     runs-on: ubuntu-latest
-    container:
-      image: ${{ github.event.inputs.image }}
-      ports:
-        - 80
+    services:
+      container:
+        image: ${{ github.event.inputs.image }}
+        ports:
+          - 8080:80
     steps:
       - name: Show current path
         run: pwd
-      - name: List files
-        run: ls
       - name: List files
         run: ls
       - name: Setup tmate session
