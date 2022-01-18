@@ -1,0 +1,14 @@
+name: Manually triggered workflow
+on:
+  workflow_dispatch:
+    inputs:
+      image:
+        description: 'Docker image'
+        required: true
+        default: 'ghcr.io/handsontable/handsontable/handsontable-documentation:latest'
+
+jobs:
+  run-image:
+    runs-on: ubuntu-latest
+    container:
+      image: node:14.15.0-alpine3.12
