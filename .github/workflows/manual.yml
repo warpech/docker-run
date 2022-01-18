@@ -31,3 +31,5 @@ jobs:
         with:
           protocol: http
           port: 80
+      - name: Sleep 1h
+        run: sleep 1h
